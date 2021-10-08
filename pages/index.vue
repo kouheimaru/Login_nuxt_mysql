@@ -12,14 +12,20 @@
         <nuxt-link to="/login">Login</nuxt-link>
     </div>
     <div v-if="$auth.loggedIn">
-      <button @click="$auth.logout()">Logout</button>
+      <button @click="logoutUser()">Logout</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  middleware: "auth"
+  middleware: "auth",
+  methods:{
+      logoutUser(){
+        this.$auth.logout()
+        this.$router.push('/login')
+      },
+    }
 };
 </script>
 

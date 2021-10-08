@@ -41,6 +41,7 @@ const con = mysql.createConnection({
 //ユーザー登録
 app.post('/api/auth/register/', (req, res) => {
   //メールが使用済みの場合に挿入できないようにする
+  //メールをユニークな値としてテーブル作成する
   const insert = 'INSERT INTO USERS (name, email, password) VALUES (?,?,?)'
   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
     con.query(insert,[req.body.name,req.body.email,hash],function(err, result, fields){
@@ -65,10 +66,12 @@ app.post('/api/auth/login/',(req,res) => {
   // console.log(req.body.email)
   con.query(sql,req.body.email,(err,user) => {
     if (err) {
-      return res.status(400).json({"error":err.message});
+      // return res.status(400).json({"error":err.message});
+      throw err
     }
     if(!user){
-      return res.json({"message": "email not found"})
+      //  return res.json({"message": "email not found"})
+      throw err
     }
     // ハッシュかされたパスワード
     // console.log(user.password)
@@ -88,12 +91,14 @@ app.post('/api/auth/login/',(req,res) => {
       //未定義である
       // console.log(user.password)
       if(err){
-        console.log("エラー")
-        return res.status(400).json({"error":err.message});
+        // console.log("エラー")
+        // return res.status(400).json({"error":err.message});
+        throw err
       }
       if (!result) {
-        console.log("パスワードが一致してない")
-        return res.json({"message" : "password is not correct"})
+        // console.log("パスワードが一致してない")
+        // return res.json({"message" : "password is not correct"})
+        throw err
       }
       // return res.json({"message" : "password is correct"})
       console.log("ログイン成功")

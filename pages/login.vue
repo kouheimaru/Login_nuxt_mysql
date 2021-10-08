@@ -34,8 +34,13 @@
       loginUser(){
         this.$auth.loginWith('local',{
           data:this.user
+        }).then((response) => {
+                    //ホームに移動する
+                      console.log("ホームに移動する")
+                      this.$router.push('/')
+        }).catch(err => {
+          alert("入力した値が不適切です")
         })
-        
       },
     }
   }
