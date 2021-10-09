@@ -40,6 +40,7 @@ const con = mysql.createConnection({
 
 //ユーザー登録
 app.post('/api/auth/register/', (req, res) => {
+  console.log("登録を開始する")
   //メールが使用済みの場合に挿入できないようにする
   //メールをユニークな値としてテーブル作成する
   const insert = 'INSERT INTO USERS (name, email, password) VALUES (?,?,?)'
@@ -157,8 +158,44 @@ app.get("/api/users", (req, res, next) => {
   //   });
 });
 
+// app.get('/',(request, response) => response.send('hello'))
 
-
-app.get('/',(request, response) => response.send('hello'))
+// アカウント削除(delete from users where email = ?)
+app.post('/api/delete', (req,res)=>{
+  console.log("api通信をする")
+  const sql = "delete from users where email = ?";
+  console.log(req.body)
+  con.query(sql,req.body.email,function(err,result){
+    if(err) throw err;
+    console.log(result)
+    console.log("削除に成功しました")
+    //return 処理をする　responseを返す
+    return res.json({
+      "message":"success",
+      "data":result  
+    })
+  })
+})
+// パスワードの更新(update users set password = ?  where email = ?)
+app.post('/api/update',(req,res)=>{
+  console.log("実行")
+  console.log(req.body)
+  console.log(req.body.email)
+  const sql = "update users set password = ? where email = ?"
+  console.log(sql)
+  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+    con.query(sql,[hash,req.body.email],function(err, result, fields){
+      if (err) throw err;
+      //結果をログで表示する
+      // console.log(hash)
+      console.log("ユーザーのパスワード更新成功")
+      //return で値を返す responbseを返す
+      return res.json({
+        "message":"success",
+        "data":result  
+      })
+  })
+  })
+})
 
 app.listen(port, () => console.log(`example app listening on port ${port}!`))

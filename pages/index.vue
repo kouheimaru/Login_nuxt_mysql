@@ -8,11 +8,14 @@
       <h2>ログイン状態:{{ $auth.loggedIn }}</h2>
       <p>ユーザーは{{ $auth.user }}</p>
     </div>
-    <div>
+    <div v-if="$auth.loggedin === 'false'">
         <nuxt-link to="/login">Login</nuxt-link>
     </div>
     <div v-if="$auth.loggedIn">
       <button @click="logoutUser()">Logout</button>
+    </div>
+    <div v-if="$auth.loggedIn">
+       <nuxt-link to="/user">アカウント管理画面</nuxt-link>
     </div>
   </div>
 </template>
