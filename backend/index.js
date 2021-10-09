@@ -61,7 +61,7 @@ app.post('/api/auth/register/', (req, res) => {
 
 //ユーザー認証
 app.post('/api/auth/login/',(req,res) => {
-  // console.log(req.body)
+  console.log("実行")
   const sql = 'select * from users where email = ?'
   const params = req.body.email
   // console.log(req.body.email)
