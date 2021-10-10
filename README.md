@@ -18,7 +18,7 @@ mysql
 
 users テーブル  
 
-|  Field  |  Type   ||  Null  |  Key  ||  Default  |  Extra  |
+|  Field  |  Type  ||  Null  |  Key  ||  Default  |  Extra  |
 | ---- | ---- || ---- | ---- || ---- | ---- |
 |  TD  |  TD  ||  TD  |  TD  ||  TD  |  TD  |
 |  TD  |  TD  ||  TD  |  TD  ||  TD  |  TD  |
