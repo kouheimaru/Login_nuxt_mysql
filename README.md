@@ -18,10 +18,12 @@ mysql
 
 users テーブル  
 
-|  TH  |  TH  |
-| ---- | ---- |
-|  TD  |  TD  |
-|  TD  |  TD  |
+|  Field  |  Type   ||  Null  |  Key  ||  Default  |  Extra  |
+| ---- | ---- || ---- | ---- || ---- | ---- |
+|  TD  |  TD  ||  TD  |  TD  ||  TD  |  TD  |
+|  TD  |  TD  ||  TD  |  TD  ||  TD  |  TD  |
+|  TD  |  TD  ||  TD  |  TD  ||  TD  |  TD  |
+|  TD  |  TD  ||  TD  |  TD  ||  TD  |  TD  |
 
   
 | Field    | Type         | Null | Key | Default | Extra          |    
