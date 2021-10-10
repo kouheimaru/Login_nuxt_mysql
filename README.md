@@ -28,7 +28,7 @@ mysql
 ## 機能一覧
 * ログイン・ログアウト(select)
 JWTを利用  
-*　ユーザーの削除(delete)
+* ユーザーの削除(delete)
 * ユーザの新規登録(insert)
 * ユーザーのパスワードの更新(update)  
 * 入力形式のバリデーション（vuetifyの機能）  
