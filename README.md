@@ -18,14 +18,14 @@ mysql
 
 users テーブル
 
-+----------+--------------+------+-----+---------+----------------+
-| Field    | Type         | Null | Key | Default | Extra          |
-+----------+--------------+------+-----+---------+----------------+
-| id       | int          | NO   | PRI | NULL    | auto_increment |
-| name     | varchar(255) | NO   |     | NULL    |                |
-| email    | varchar(255) | NO   | UNI | NULL    |                |
-| password | varchar(255) | NO   |     | NULL    |                |
-+----------+--------------+------+-----+---------+----------------+
++----------+--------------+------+-----+---------+----------------+  
+| Field    | Type         | Null | Key | Default | Extra          |  
++----------+--------------+------+-----+---------+----------------+  
+| id       | int          | NO   | PRI | NULL    | auto_increment |  
+| name     | varchar(255) | NO   |     | NULL    |                |  
+| email    | varchar(255) | NO   | UNI | NULL    |                |  
+| password | varchar(255) | NO   |     | NULL    |                |  
++----------+--------------+------+-----+---------+----------------+  
 
 ## 機能一覧
 * ログイン
