@@ -47,7 +47,7 @@
           <v-card-actions>
             <v-btn class="info" @click="loginUser">ログイン</v-btn>
             <v-spacer></v-spacer>
-            <v-btn class="success" to="/register">アカウント作成する</v-btn>
+            <v-btn class="success" to="/register">新規作成する</v-btn>
           </v-card-actions>
         </v-form>
       </v-card-text>

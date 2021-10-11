@@ -1,5 +1,6 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  // serverMiddleware:[ '~/backend' ],
   head: {
     title: 'nuxt-second',
     htmlAttrs: {
