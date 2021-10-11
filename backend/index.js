@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt')
 const saltRounds = 10
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
+require('dotenv').config();
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 //json受け取る方式で利用する
@@ -15,10 +16,10 @@ app.use(bodyParser.json());
 const mysql = require('mysql');
 
 const con = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'express_db'
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE_NAME
 })
 
 // 接続の確認
@@ -37,7 +38,6 @@ const con = mysql.createConnection({
 //     console.log(result);
 //   })
 // })
-
 //ユーザー登録
 app.post('/api/auth/register/', (req, res) => {
   console.log("登録を開始する")
